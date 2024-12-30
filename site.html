@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Путешествия</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="travel-favicon.ico" type="image/x-icon">
+    <meta name="description" content="Откройте для себя лучшие места для путешествий по всему миру. Советы, маршруты и достопримечательности.">
+    <meta name="keywords" content="путешествия, туризм, маршруты, достопримечательности, советы">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Путешествия</div>
+    </div>
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="#">Главная</a>
+            <a href="#">Маршруты</a>
+            <a href="#">Достопримечательности</a>
+            <a href="#">Советы</a>
+            <a href="#">Контакты</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="left">
+            <img src="travel-image1.jpg" alt="Путешествие">
+        </div>
+        <div class="right">
+            <h2>Путешествуйте с нами</h2>
+            <p>Откройте для себя лучшие места для путешествий по всему миру. Мы предлагаем вам маршруты, советы и информацию о достопримечательностях, чтобы сделать ваше путешествие незабываемым.</p>
+        </div>
+    </div>
+    <div class="slider">
+        <span class="arrow left-arrow">&larr;</span>
+        <img src="slider-image1.jpg" alt="Фотография 1" class="active">
+        <img src="slider-image2.jpg" alt="Фотография 2">
+        <img src="slider-image3.jpg" alt="Фотография 3">
+        <span class="arrow right-arrow">&rarr;</span>
+    </div>
+    <div class="contact">
+        <i class="fas fa-envelope icon"></i>
+        <p>Подпишитесь на наши новости и получите свежие советы по путешествиям.</p>
+    </div>
+    <div class="footer">
+        <p>© 2024 Путешествия. Все права защищены.</p>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.slider img');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+        }
+
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        });
+    </script>
+</body>
+</html>
